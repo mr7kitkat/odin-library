@@ -9,6 +9,53 @@
     <script src="./scripts/main.js" defer></script>
   </head>
   <body>
-    <h1>Library</h1>
+    <header>
+      <h1>Library</h1>
+      <button id="addBook">Add A Book</button>
+    </header>
+
+    <dialog>
+      <form method="dialog">
+        <h2>Fill details to add the Book</h2>
+        <label for="title">
+          <span>Title</span>
+          <input type="text" id="title" name="title" />
+        </label>
+        <label for="author">
+          <span>Author</span>
+          <input type="text" id="author" name="author" />
+        </label>
+        <label for="description">
+          <span>Description</span>
+          <input type="text" id="description" name="description" />
+        </label>
+        <label for="imageUrl">
+          <span>Image URL:</span>
+          <input type="text" id="imageUrl" name="imageUrl" />
+        </label>
+        <label for="status">
+          <span>Have you read the book ?</span>
+          <input type="checkbox" name="status" id="status" />
+        </label>
+
+        <button id="closeForm">Add Book</button>
+      </form>
+    </dialog>
+
+    <main>
+      <!-- 
+      <div class="book">
+        <img src="" alt="Book Image" />
+        <div class="details">
+          <h3>The Book Name</h3>
+          <div class="author">
+            <h4>Written By-</h4>
+            <p>Great author name</p>
+          </div>
+          <p class="status not-read">Read</p>
+        </div>
+      </div> 
+      -->
+    </main>
   </body>
 </html>
