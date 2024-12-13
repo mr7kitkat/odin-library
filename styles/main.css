@@ -24,6 +24,7 @@ main {
   padding: 1rem;
 }
 
+/* Header section styling */
 header {
   display: flex;
   justify-content: space-between;
@@ -31,25 +32,24 @@ header {
 
 h1 {
   text-transform: uppercase;
+  color: darkcyan;
 }
 
 button {
   padding: 0 0.5rem;
+  outline: 0px;
+  border-radius: 0.5rem;
+  background-color: darkcyan;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  --row-size: 280px;
-  grid-template-rows: var(--row-size);
-  grid-auto-rows: var(--row-size);
-  gap: 1rem;
+button:active {
+  transform: scale(0.96);
 }
 
-main > div {
-  border: 1px solid black;
-}
-
+/* DIALOG Box styling */
 dialog {
   height: min(100%, 100vh);
   width: min(500px, 100vw);
@@ -65,67 +65,131 @@ label {
   flex-direction: column;
 }
 
+form h2 {
+  margin: 2rem 0;
+  font-size: 1.8rem;
+}
+
+form button {
+  padding: 1rem;
+}
+
 label {
   margin-top: 1rem;
+  font-style: italic;
+}
+
+label input {
+  height: 30px;
+  padding: 0 0.3rem;
+  border-radius: 0.25rem;
 }
 
 label[for="status"] {
   flex-direction: row;
   gap: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 
-form h2 {
-  margin: 2rem 0;
-  font-size: 1.8rem;
+label[for="status"] input {
+  height: 26px;
+  width: 26px;
+  cursor: pointer;
 }
 
-/* Each book styling */
-div.book {
-  padding: 8px;
+/* Section where book can be placed */
+main {
   display: grid;
-  grid-template-rows: 4fr 2fr;
-  gap: 2px;
-  border-radius: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  --row-size: 380px;
+  grid-template-rows: var(--row-size);
+  grid-auto-rows: var(--row-size);
+  gap: 1rem;
 }
 
-div.book img {
+main > div {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.book {
+  display: grid;
+  grid-template-rows: 280px 1fr;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: 0.4s all;
+}
+
+.book:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.43);
+  transform: scale(1.02);
+}
+
+.book img {
+  background-color: rgba(18, 51, 18, 0.474);
   height: 100%;
   width: 100%;
-  border: 1px solid black;
 }
 
-div.details h3 {
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  overflow: hidden;
 }
 
-div.details h4 {
-  font-size: 0.9rem;
-}
-
-div.details p {
-  font-size: 0.75rem;
+.details h3 {
+  color: rgb(27, 27, 27);
   font-style: italic;
+  font-size: 0.9rem;
+  margin: 0;
+  margin-top: 4px;
+  border-bottom: 1px solid rgb(27, 27, 27);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-p.status {
-  border: 1px solid black;
-  text-align: center;
+.author {
+  display: flex;
+}
+
+.author h4 {
+  font-size: 0.6rem;
+  margin: 0;
+  color: rgb(60, 60, 60);
+}
+
+.author p {
+  line-height: 1;
+  font-size: 0.8rem;
+  margin-left: 4px;
+  font-style: italic;
+  color: #0e0e0e;
   font-weight: bold;
-  text-transform: uppercase;
+}
+
+.status.false {
   border-radius: 1rem;
+  text-align: center;
+  --color: rgb(71, 0, 0);
+  border: 1px solid var(--color);
+  background-color: rgba(220, 20, 60, 0.5);
+  color: var(--color);
+  font-weight: bold;
 }
 
-p.read {
-  background-color: chartreuse;
-  color: green;
-  border-color: green;
+.status.true {
+  background-color: rgba(36, 198, 0, 0.5);
+  --color: green;
 }
 
-p.not-read {
-  background-color: rgb(255, 179, 179);
-  color: rgb(115, 1, 1);
-  border-color: rgb(115, 1, 1);
+@media screen and (max-width: 400px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
 }
