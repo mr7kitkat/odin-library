@@ -21,4 +21,4 @@ The goal of this project is to create a small Library application that allows us
 - Language used - HTML, CSS and JS
 - Author - Priyanshu (mr7kitkat)
 
-### [Click here for Live Preview](https://github.com/mr7kitkat/odin-library)
+### [Click here for Live Preview](https://mr7kitkat.github.io/odin-library/)
