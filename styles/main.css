@@ -120,6 +120,7 @@ main > div {
   cursor: pointer;
 
   transition: 0.4s all;
+  position: relative;
 }
 
 .book:hover {
@@ -131,6 +132,27 @@ main > div {
   background-color: rgba(18, 51, 18, 0.474);
   height: 100%;
   width: 100%;
+}
+
+.book .delete {
+  background-color: tomato;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  line-height: 0;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  --size: 22px;
+  height: var(--size);
+  width: var(--size);
+  font-size: var(--size);
+  display: none;
+}
+
+.book:hover .delete {
+  display: initial;
 }
 
 .details {
@@ -172,19 +194,23 @@ main > div {
   font-weight: bold;
 }
 
-.status.false {
+.status {
   border-radius: 1rem;
   text-align: center;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.status.false {
   --color: rgb(71, 0, 0);
-  border: 1px solid var(--color);
+  border-color: var(--color);
   background-color: rgba(220, 20, 60, 0.5);
   color: var(--color);
-  font-weight: bold;
 }
 
 .status.true {
-  background-color: rgba(36, 198, 0, 0.5);
   --color: green;
+  background-color: rgba(36, 198, 0, 0.5);
 }
 
 @media screen and (max-width: 400px) {

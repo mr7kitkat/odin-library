@@ -104,6 +104,7 @@ function parseBooks() {
         const currentReadingStatus = getReadStatus(status)
         const DOM_BOOK = `
         <div class="book">
+            <button class="delete">&times;</button>
             <img src="${imageURL}" alt="Book Image" />
             <div class="details">
             <h3>${title}</h3>
@@ -122,11 +123,22 @@ function parseBooks() {
     // lastly add all to main dom element
     main.innerHTML = STRING_BOOKS;
 
+    // make sure that status gets updated after double clicking
     const statusOfBooks = document.querySelectorAll(".status");
-    statusOfBooks.forEach(book => {
+    statusOfBooks.forEach((book, idx) => {
         book.addEventListener("click", function () {
-            book.classList.toggle("true");
-            book.innerText = getReadStatus(book.className.includes("true"))
+            myLibrary[idx].status = !myLibrary[idx].status;
+            parseBooks()
+        })
+    })
+
+
+    // make sure that status gets updated after double clicking
+    const allDeleteBtns = document.querySelectorAll(".delete");
+    allDeleteBtns.forEach((deleteBtn, idx) => {
+        deleteBtn.addEventListener("click", function () {
+            myLibrary.splice(idx, 1);
+            parseBooks()
         })
     })
 
